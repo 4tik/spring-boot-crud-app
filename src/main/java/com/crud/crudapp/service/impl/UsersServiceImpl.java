@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Slf4j
 @Service
@@ -18,5 +20,27 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public List<Users> getUsers() {
         return usersRepository.findAll();
+    }
+
+    @Override
+    public void store(Users users) {
+        users.setCreatedOn(new Date(System.currentTimeMillis()));
+        usersRepository.save(users);
+    }
+
+    @Override
+    public Users getById(Long id) {
+        return usersRepository.findById(id)
+                .orElseThrow(()-> new NoSuchElementException("user not found"));
+    }
+
+    @Override
+    public void update(Users users) {
+        usersRepository.save(users);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        usersRepository.deleteById(id);
     }
 }

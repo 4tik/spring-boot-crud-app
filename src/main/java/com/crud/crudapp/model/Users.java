@@ -28,9 +28,6 @@ public class Users {
     @Column(nullable = false, unique = true, name = "email")
     private String email;
 
-    @Column(nullable = false, name = "password")
-    private String password;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_on")
     private Date createdOn;

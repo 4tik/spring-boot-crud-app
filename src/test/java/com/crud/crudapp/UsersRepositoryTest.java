@@ -23,7 +23,6 @@ public class UsersRepositoryTest {
                 .firstName("Jhon")
                 .lastName("Doe")
                 .email("jhon_doe@crud.app")
-                .password("password")
                 .build();
         usersRepository.save(users);
 

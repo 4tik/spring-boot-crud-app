@@ -5,7 +5,6 @@ CREATE TABLE users
   first_name VARCHAR(250),
   last_name  VARCHAR(250),
   email      VARCHAR(250),
-  password   VARCHAR(250),
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (id)
